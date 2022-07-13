@@ -28,7 +28,6 @@ pph.antepartum.rawfactors$bmi1 = newbmi
 voi = pph.antepartum.rawfactors[, c(2, 3, 5, 8, 10:11, 14, 16, 20:22, 24, 31)]
 colnames(voi) = c("PH", "Age", "ED", "IN", "UB", "RE", "Haem", "MP", "Pre", "AH", "HIV", "AN", "BMI")
 
-
 ################################################################################  
 
 # COMPLETE & INCOMPLETE OBSERVATIONS
@@ -91,10 +90,6 @@ table(NAcount.by.obs.a)
 NAcount.by.var.a = apply(pph.antepartum.rawfactors, 2, function(x) {length(which(is.na(x)))})
 NAcount.by.var.a[NAcount.by.var.a > 0]
 
-# Considering only antepartum is clinically practical and helps with missing data problem
-
-kbl(table(NAcount.by.obs.a), format = "latex", booktabs = T) %>%
-  column_spec(1:3, border_left = T, border_right = T) %>%
-  kable_styling(latex_options = "hold_position")
+# Considering only antepartum is both clinically practical and makes better use of complete data
 
 ################################################################################
